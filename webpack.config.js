@@ -16,8 +16,13 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    hot: true,
+    // contentBase: path.resolve(__dirname, 'public'),
+    static:{
+      directory: path.join(__dirname, 'public')
+    },
+    compress: true,
+    port: 3011, // default port 8080
+    hot: true, // default
   },
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),  
